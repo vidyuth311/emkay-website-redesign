@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emkay Global — Website Redesign</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #F5F0E6;
+  color: #004875;
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  background: #003357;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo-mark {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+}
+.logo-mark span {
+  border-radius: 2px;
+  background: #EF8A00;
+}
+.logo-mark span:nth-child(3),
+.logo-mark span:nth-child(4) { background: rgba(255,255,255,0.4); }
+.logo-text {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.logo-sub {
+  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+/* HERO */
+.hero {
+  background: #004875;
+  padding: 80px 48px 72px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+.hero-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #EF8A00;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  color: white;
+  line-height: 1.15;
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+.hero h1 strong {
+  font-weight: 700;
+  color: #EF8A00;
+}
+.hero p {
+  color: rgba(255,255,255,0.55);
+  font-size: 16px;
+  max-width: 480px;
+  line-height: 1.7;
+}
+.page-count {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 8px 20px;
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+}
+.page-count strong { color: white; }
+
+/* GRID */
+.grid-section {
+  padding: 64px 48px;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #EF8A00;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,72,117,0.12);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(0,72,117,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,72,117,0.12);
+}
+.card-thumb {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-family: monospace;
+  color: rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.card-thumb svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.card-body {
+  padding: 20px 24px 24px;
+}
+.card-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #EF8A00;
+  margin-bottom: 8px;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #004875;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.card-desc {
+  font-size: 13px;
+  color: rgba(0,72,117,0.55);
+  line-height: 1.6;
+}
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #004875;
+  text-decoration: none;
+}
+.card-link::after { content: '→'; }
+
+/* FOOTER */
+footer {
+  background: #003357;
+  color: rgba(255,255,255,0.4);
+  font-size: 12px;
+  text-align: center;
+  padding: 24px 48px;
+  margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-mark">
+    <span></span><span></span>
+    <span></span><span></span>
+  </div>
+  <span class="logo-text">EMKAY GLOBAL</span>
+  <span class="logo-sub">/ Website Redesign</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Design Exploration · April 2026</div>
+  <h1>Emkay Global<br><strong>Website Redesign</strong></h1>
+  <p>Mid-fidelity page designs across all core sections of the new Emkay Global website.</p>
+  <div class="page-count"><strong>7</strong> pages designed</div>
+</div>
+
+<div class="grid-section">
+  <div class="section-label">All Pages</div>
+  <div class="grid">
+
+    <a class="card" href="01-Homepage.html">
+      <div class="card-thumb">
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="200" fill="#004875"/>
+          <rect width="680" height="32" fill="#003357"/>
+          <rect x="24" y="8" width="8" height="8" rx="1" fill="#EF8A00"/>
+          <rect x="24" y="16" width="8" height="8" rx="1" fill="#EF8A00"/>
+          <rect x="32" y="16" width="8" height="8" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="24" y="60" width="200" height="24" rx="3" fill="white" opacity="0.9"/>
+          <rect x="24" y="92" width="180" height="24" rx="3" fill="#EF8A00" opacity="0.9"/>
+          <rect x="24" y="130" width="140" height="10" rx="2" fill="white" opacity="0.25"/>
+          <rect x="24" y="148" width="110" height="10" rx="2" fill="white" opacity="0.25"/>
+          <rect x="24" y="172" width="80" height="20" rx="2" fill="#EF8A00"/>
+          <rect x="400" y="50" width="240" height="180" rx="4" fill="white" opacity="0.04" stroke="white" stroke-width="1" stroke-dasharray="4,3"/>
+          <circle cx="620" cy="160" r="80" fill="none" stroke="white" stroke-width="1" opacity="0.05"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Homepage</div>
+        <div class="card-title">Homepage — Mid-fi</div>
+        <div class="card-desc">Full homepage design with hero, services grid, stats ticker, and editorial sections.</div>
+        <span class="card-link">Open page</span>
+      </div>
+    </a>
+
+    <a class="card" href="02-Capital-Markets.html">
+      <div class="card-thumb">
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="200" fill="#004875"/>
+          <rect width="680" height="32" fill="#003357"/>
+          <rect x="24" y="8" width="8" height="8" rx="1" fill="#EF8A00"/>
+          <rect x="24" y="55" width="220" height="22" rx="3" fill="white" opacity="0.9"/>
+          <rect x="24" y="85" width="160" height="14" rx="2" fill="white" opacity="0.3"/>
+          <rect x="24" y="116" width="80" height="22" rx="2" fill="#EF8A00"/>
+          <rect x="360" y="40" width="300" height="150" rx="4" fill="white" opacity="0.05"/>
+          <polyline points="375,170 420,130 470,150 520,100 570,120 620,80 660,90" fill="none" stroke="#EF8A00" stroke-width="2" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Business Line</div>
+        <div class="card-title">Capital Markets</div>
+        <div class="card-desc">Institutional equities, research, and trading services page with market data visualisation.</div>
+        <span class="card-link">Open page</span>
+      </div>
+    </a>
+
+    <a class="card" href="03-Asset-Management.html">
+      <div class="card-thumb">
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="200" fill="#0A0A0E"/>
+          <rect width="680" height="32" fill="#111"/>
+          <rect x="24" y="8" width="8" height="8" rx="1" fill="#B84A1C"/>
+          <rect x="24" y="16" width="8" height="8" rx="1" fill="#EF8A00"/>
+          <rect x="24" y="60" width="200" height="22" rx="3" fill="#B84A1C" opacity="0.8"/>
+          <rect x="24" y="90" width="160" height="12" rx="2" fill="white" opacity="0.25"/>
+          <rect x="24" y="130" width="160" height="56" rx="3" fill="#B84A1C" opacity="0.15"/>
+          <rect x="200" y="130" width="160" height="56" rx="3" fill="#EF8A00" opacity="0.1"/>
+          <rect x="376" y="130" width="160" height="56" rx="3" fill="white" opacity="0.05"/>
+          <rect x="552" y="130" width="104" height="56" rx="3" fill="white" opacity="0.04"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Business Line</div>
+        <div class="card-title">Asset Management — EIML</div>
+        <div class="card-desc">Fund performance, strategy philosophy, and portfolio management page.</div>
+        <span class="card-link">Open page</span>
+      </div>
+    </a>
+
+    <a class="card" href="04-Wealth.html">
+      <div class="card-thumb">
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="200" fill="#1E1B4B"/>
+          <rect width="680" height="32" fill="#161340"/>
+          <rect x="24" y="8" width="8" height="8" rx="1" fill="#EF8A00"/>
+          <rect x="24" y="60" width="240" height="26" rx="3" fill="#F5F0E6" opacity="0.9"/>
+          <rect x="24" y="94" width="180" height="26" rx="3" fill="#EF8A00" opacity="0.85"/>
+          <rect x="24" y="138" width="140" height="10" rx="2" fill="white" opacity="0.2"/>
+          <rect x="24" y="155" width="110" height="10" rx="2" fill="white" opacity="0.2"/>
+          <rect x="24" y="174" width="80" height="22" rx="11" fill="#EF8A00"/>
+          <circle cx="560" cy="120" r="100" fill="#EF8A00" opacity="0.04"/>
+          <circle cx="560" cy="120" r="70" fill="#EF8A00" opacity="0.04"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Business Line</div>
+        <div class="card-title">Emkay Wealth</div>
+        <div class="card-desc">Premium wealth management for India's most discerning families. Indigo editorial theme.</div>
+        <span class="card-link">Open page</span>
+      </div>
+    </a>
+
+    <a class="card" href="05-Thought-Leadership.html">
+      <div class="card-thumb">
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="200" fill="#F5F0E6"/>
+          <rect width="680" height="32" fill="#004875"/>
+          <rect x="24" y="50" width="300" height="140" rx="4" fill="#004875" opacity="0.08"/>
+          <rect x="340" y="50" width="144" height="67" rx="4" fill="#EF8A00" opacity="0.15"/>
+          <rect x="340" y="124" width="144" height="67" rx="4" fill="#004875" opacity="0.08"/>
+          <rect x="40" y="78" width="100" height="10" rx="2" fill="#004875" opacity="0.5"/>
+          <rect x="40" y="96" width="160" height="8" rx="2" fill="#004875" opacity="0.2"/>
+          <rect x="40" y="110" width="130" height="8" rx="2" fill="#004875" opacity="0.2"/>
+          <rect x="500" y="50" width="156" height="140" rx="4" fill="#004875" opacity="0.06"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Content</div>
+        <div class="card-title">Thought Leadership</div>
+        <div class="card-desc">Editorial micro-site with dual light/dark mode and channel-based content browsing.</div>
+        <span class="card-link">Open page</span>
+      </div>
+    </a>
+
+    <a class="card" href="06-Growth-Rings.html">
+      <div class="card-thumb">
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="200" fill="#0A0A0E"/>
+          <circle cx="340" cy="100" r="130" fill="none" stroke="#EF8A00" stroke-width="1.5" opacity="0.12"/>
+          <circle cx="340" cy="100" r="95" fill="none" stroke="#EF8A00" stroke-width="1.5" opacity="0.18"/>
+          <circle cx="340" cy="100" r="60" fill="none" stroke="#EF8A00" stroke-width="1.5" opacity="0.28"/>
+          <circle cx="340" cy="100" r="28" fill="none" stroke="#EF8A00" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="340" cy="100" r="8" fill="#EF8A00"/>
+          <rect x="200" y="18" width="280" height="16" rx="2" fill="white" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">About / Story</div>
+        <div class="card-title">Growth Rings</div>
+        <div class="card-desc">Interactive scrollytelling timeline of Emkay's history using concentric ring metaphor.</div>
+        <span class="card-link">Open page</span>
+      </div>
+    </a>
+
+    <a class="card" href="07-Wireframes.html">
+      <div class="card-thumb">
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="200" fill="#1a1a1a"/>
+          <rect x="16" y="16" width="320" height="168" rx="4" fill="white" opacity="0.05" stroke="white" stroke-width="1" stroke-dasharray="4,3"/>
+          <rect x="344" y="16" width="320" height="168" rx="4" fill="white" opacity="0.05" stroke="white" stroke-width="1" stroke-dasharray="4,3"/>
+          <rect x="36" y="56" width="100" height="10" rx="2" fill="white" opacity="0.35"/>
+          <rect x="36" y="74" width="160" height="7" rx="2" fill="white" opacity="0.15"/>
+          <rect x="36" y="87" width="130" height="7" rx="2" fill="white" opacity="0.15"/>
+          <rect x="364" y="56" width="100" height="10" rx="2" fill="#EF8A00" opacity="0.55"/>
+          <rect x="364" y="74" width="160" height="7" rx="2" fill="white" opacity="0.15"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Exploration</div>
+        <div class="card-title">Homepage Wireframes</div>
+        <div class="card-desc">Four distinct homepage layout directions explored as low-fidelity wireframes.</div>
+        <span class="card-link">Open page</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  Emkay Global Financial Services · Website Redesign · April 2026 · Confidential
+</footer>
+
+</body>
+</html>
